@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AppConfig,
   UserSession,
@@ -8,6 +8,12 @@ import {
 import { StacksMocknet } from "@stacks/network";
 import { stringUtf8CV } from "@stacks/transactions";
 import { UserData } from "@stacks/auth";
+
+// Import additional components
+import Header from './components/Header';
+import Hero from './components/Hero';
+import DAOCards from './components/DAOCards';
+import Footer from './components/Footer';
 
 function App() {
   const [message, setMessage] = useState("");
@@ -31,8 +37,6 @@ function App() {
       setUserData(userSession.loadUserData());
     }
   }, []);
-
-  console.log(userData);
 
   const connectWallet = () => {
     showConnect({
@@ -60,7 +64,7 @@ function App() {
       appDetails,
       onFinish: ({ txId }: { txId: string }) => {
         console.log(txId);
-        setTransactionId(txId); // Puedes guardar el ID de la transacción si lo necesitas
+        setTransactionId(txId);
       },
     };
 
@@ -72,14 +76,25 @@ function App() {
   };
 
   const retrieveMessage = () => {
-    // submit transaction
+    // Add logic to retrieve message using transactionId
   };
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen  gap-8 bg-gray-100 p-4">
+      {/* Header Component */}
+      <Header />
+      
+      {/* Hero Section */}
+      <Hero />
+      
+      {/* DAO Cards Section */}
+      <DAOCards />
+
+      {/* Main Wallet Connection and Contract Call Logic */}
       <h1 className="text-6xl font-black text-center text-indigo-600">
         Test contract
       </h1>
+      
       {!userData && (
         <button
           className="p-4 bg-indigo-500 rounded text-white text-lg shadow-lg"
@@ -88,6 +103,7 @@ function App() {
           Connect Wallet
         </button>
       )}
+
       {userData && (
         <div className="flex flex-col gap-4 items-center max-w-md w-full">
           <input
@@ -104,6 +120,7 @@ function App() {
           </button>
         </div>
       )}
+
       <div className="flex flex-col gap-4 items-center max-w-md w-full">
         <input
           className="p-4 border border-indigo-500 rounded w-full text-lg shadow-sm"
@@ -118,9 +135,13 @@ function App() {
           Retrieve Message
         </button>
       </div>
+
       {currentMessage.length > 0 && (
         <p className="text-2xl text-center text-indigo-700">{currentMessage}</p>
       )}
+
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 }
