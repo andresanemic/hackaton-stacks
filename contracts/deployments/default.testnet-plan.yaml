@@ -1,0 +1,25 @@
+---
+id: 0
+name: Testnet deployment
+network: testnet
+stacks-node: "https://api.testnet.hiro.so"
+bitcoin-node: "http://blockstack:blockstacksystem@bitcoind.testnet.stacks.co:18332"
+plan:
+  batches:
+    - id: 0
+      transactions:
+        - contract-publish:
+            contract-name: DAOToken
+            expected-sender: STNMSHXM8WZT2DN4SDC1EHTYJY97012YF7CXRZF3
+            cost: 109943
+            path: contracts/DAOToken.clar
+            anchor-block-only: true
+            clarity-version: 2
+        - contract-publish:
+            contract-name: DAOCommunity
+            expected-sender: STNMSHXM8WZT2DN4SDC1EHTYJY97012YF7CXRZF3
+            cost: 109943
+            path: contracts/DAOCommunity.clar
+            anchor-block-only: true
+            clarity-version: 2
+      epoch: "2.5"

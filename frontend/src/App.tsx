@@ -60,7 +60,7 @@ function App() {
       appDetails,
       onFinish: ({ txId }: { txId: string }) => {
         console.log(txId);
-        setTransactionId(txId); // Puedes guardar el ID de la transacción si lo necesitas
+        setTransactionId(txId);
       },
     };
 
@@ -71,8 +71,15 @@ function App() {
     setTransactionId(e.target.value);
   };
 
-  const retrieveMessage = () => {
-    // submit transaction
+  const retrieveMessage = async () => {
+    const retrievedMessage = await fetch(
+      "http://localhost:3999/extended/v1/tx/events?" +
+        new URLSearchParams({
+          tx_id: transactionId,
+        })
+    );
+    const responseJson = await retrievedMessage.json();
+    setCurrentMessage(responseJson.events[0].contract_log.value.repr);
   };
 
   return (
