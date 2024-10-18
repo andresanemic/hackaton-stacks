@@ -10,10 +10,10 @@ import { stringUtf8CV } from "@stacks/transactions";
 import { UserData } from "@stacks/auth";
 
 // Import additional components
-import Header from './components/Header';
-import Hero from './components/Hero';
-import DAOCards from './components/DAOCards';
-import Footer from './components/Footer';
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import DAOCards from "./components/DAOCards";
+import Footer from "./components/Footer";
 
 function App() {
   const [message, setMessage] = useState("");
@@ -81,20 +81,16 @@ function App() {
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen  gap-8 bg-gray-100 p-4">
-      {/* Header Component */}
       <Header />
-      
-      {/* Hero Section */}
+
       <Hero />
-      
-      {/* DAO Cards Section */}
+
       <DAOCards />
 
-      {/* Main Wallet Connection and Contract Call Logic */}
       <h1 className="text-6xl font-black text-center text-indigo-600">
         Test contract
       </h1>
-      
+
       {!userData && (
         <button
           className="p-4 bg-indigo-500 rounded text-white text-lg shadow-lg"
