@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 
 function DeployDao() {
   const [blockchainConfirmed, setBlockchainConfirmed] = useState(false);
   const [daoConfirmed, setDaoConfirmed] = useState(false);
   const [votersConfirmed, setVotersConfirmed] = useState(false);
   const [votingParamsConfirmed, setVotingParamsConfirmed] = useState(false);
+  const navigate = useNavigate(); // Use navigate for routing
 
   const allConfirmed =
     blockchainConfirmed && daoConfirmed && votersConfirmed && votingParamsConfirmed;
 
   const handleDeploy = () => {
-    if (allConfirmed) {
-      console.log('DAO Deployed!');
-      // Logic for deploying DAO goes here
-    } else {
-      alert('Please confirm all sections before deploying.');
-    }
+    // Directly navigate to confirmation page without any checks for now
+    navigate('/confirmation'); // Navigate to the confirmation page
   };
 
   return (
@@ -103,11 +101,8 @@ function DeployDao() {
 
       {/* Deploy Button */}
       <button
-        className={`mt-6 px-6 py-3 rounded-md text-white ${
-          allConfirmed ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-400 cursor-not-allowed'
-        }`}
-        onClick={handleDeploy}
-        disabled={!allConfirmed}
+        className="mt-6 px-6 py-3 rounded-md bg-blue-500 text-white hover:bg-blue-600"
+        onClick={handleDeploy} // Call the deploy handler
       >
         Deploy your DAO
       </button>

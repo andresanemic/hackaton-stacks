@@ -1,8 +1,7 @@
-import React from "react";
 
 function Footer() {
   return (
-    <footer className="w-full py-4 bg-indigo-600 text-white text-center mt-auto">
+    <footer className="w-full py-4 bg-red-600 text-white text-center mt-auto" style={{ backgroundColor: '#C7253E' }}>
       <p>© 2024 DAO Builder</p>
     </footer>
   );

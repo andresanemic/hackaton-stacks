@@ -7,7 +7,7 @@ function DAOList() {
       id: 1,
       name: 'Polygon Community Treasury',
       description: 'A protocol-funded support treasury for funding innovations.',
-      tags: ['Ethereum', 'Token-based'],
+      tags: ['Governance', 'Token-based'],
     },
     {
       id: 2,
