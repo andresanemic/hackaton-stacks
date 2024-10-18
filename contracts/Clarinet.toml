@@ -4,9 +4,15 @@ description = ''
 authors = []
 telemetry = true
 cache_dir = './.cache'
-requirements = []
-[contracts.hello-stacks]
-path = 'contracts/hello-stacks.clar'
+
+[contracts.DAOCommunity]
+path = 'contracts/DAOCommunity.clar'
+clarity_version = 2
+epoch = 2.5
+
+
+[contracts.DAOToken]
+path = 'contracts/DAOToken.clar'
 clarity_version = 2
 epoch = 2.5
 [repl.analysis]
