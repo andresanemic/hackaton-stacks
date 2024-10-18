@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import BackgroundImage from '../assets/hero-background.png'; // Import your background image
 
+
 const Hero: React.FC = () => {
   const navigate = useNavigate(); // Initialize useNavigate
 

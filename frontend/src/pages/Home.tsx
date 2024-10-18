@@ -18,7 +18,7 @@ import Footer from "../components/Footer";
 function App() {
   const [message, setMessage] = useState("");
   const [transactionId, setTransactionId] = useState("");
-  const [currentMessage, setCurrentMessage] = useState("");
+  const [currentMessage] = useState("");
   const [userData, setUserData] = useState<UserData | undefined>(undefined);
 
   const appConfig = new AppConfig(["store_write"]);
