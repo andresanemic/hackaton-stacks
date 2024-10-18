@@ -48,13 +48,13 @@ function Header() {
       {!userData ? (
         <button
           className="bg-white text-indigo-600 px-4 py-2 rounded shadow-lg"
-          onClick={connectWallet}
+          onClick={connectWallet} style={{ color: '#A40B00' }}
         >
           Connect Wallet
         </button>
       ) : (
         <div className="flex items-center">
-          <button className="bg-indigo-500 text-white px-4 py-2 rounded shadow-lg mr-4">
+          <button className="bg-indigo-500 text-white px-4 py-2 rounded shadow-lg mr-4" >
             {truncateAddress(
               userData.profile.stxAddress.testnet || "No address available"
             )}
