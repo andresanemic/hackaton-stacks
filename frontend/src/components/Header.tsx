@@ -37,8 +37,12 @@ function Header() {
     setUserData(undefined);
   };
 
+  const truncateAddress = (address: string) => {
+    return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  };
+
   return (
-    <header className="w-full flex justify-between items-center py-4 px-6 bg-indigo-600">
+    <header className="w-full fixed top-0 left-0 flex justify-between items-center py-4 px-6 bg-indigo-600 z-10">
       <h1 className="text-2xl text-white font-bold">DAO Builder</h1>
       {!userData ? (
         <button
@@ -49,10 +53,11 @@ function Header() {
         </button>
       ) : (
         <div className="flex items-center">
-          <span className="text-white mr-4">
-            Wallet Address:{" "}
-            {userData.profile.stxAddress.testnet || "No address available"}
-          </span>
+          <button className="bg-indigo-500 text-white px-4 py-2 rounded shadow-lg mr-4">
+            {truncateAddress(
+              userData.profile.stxAddress.testnet || "No address available"
+            )}
+          </button>
           <button
             className="bg-white text-indigo-600 px-4 py-2 rounded shadow-lg"
             onClick={disconnectWallet}
